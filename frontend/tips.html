@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital safety tips to protect your privacy online, secure your accounts, and avoid scams.">
+    <title>Digital Safety Tips — PrivacyAware</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .tips-page-hero {
+            padding: var(--space-4xl) 0 var(--space-2xl);
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0d1137 100%);
+        }
+
+        .tips-page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .tip-card {
+            background: var(--color-bg-glass);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            transition: all var(--transition-base);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-cyan);
+            border-color: rgba(0, 212, 255, 0.35);
+        }
+
+        .tip-card-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--color-cyan), var(--color-blue));
+            color: white;
+            margin-bottom: var(--space-lg);
+        }
+
+        .tip-card h3 {
+            margin-bottom: var(--space-sm);
+            font-size: 1.2rem;
+        }
+
+        .tip-card p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-page-hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-content">
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="nav-brand" aria-label="PrivacyAware Home"><i class="fas fa-shield-halved"></i> PrivacyAware</a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/learn/">Learn</a>
+                <a href="/tips/" class="active">Safety Tips</a>
+                <a href="/survey/">Survey</a>
+                <a href="/about/">About</a>
+                <a href="/survey/" class="nav-cta">Take Survey</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="tips-page-hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-virus"></i> Practical Advice
+                </div>
+                <h1>Digital Safety <span class="text-cyan">Tips</span></h1>
+                <p class="section-subtitle" style="margin-bottom:0;">Small habits can make a big difference in protecting your personal information and online accounts.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="tips-grid">
+                    <article class="tip-card animate-on-scroll">
+                        <div class="tip-card-icon"><i class="fas fa-key"></i></div>
+                        <h3>Password Tip</h3>
+                        <p>Use a strong and unique password for every important account. A password manager can help you create and remember safe passwords without repetition.</p>
+                    </article>
+
+                    <article class="tip-card animate-on-scroll">
+                        <div class="tip-card-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                        <h3>OTP Tip</h3>
+                        <p>Never share OTPS, UPI PINs, or verification codes with anyone. Legitimate services will never ask you to share them to receive money or recover an account.</p>
+                    </article>
+
+                    <article class="tip-card animate-on-scroll">
+                        <div class="tip-card-icon"><i class="fas fa-fish"></i></div>
+                        <h3>Phishing Tip</h3>
+                        <p>Verify links before clicking. If a message creates urgency, asks for personal data, or uses a suspicious sender address, treat it as a scam.</p>
+                    </article>
+
+                    <article class="tip-card animate-on-scroll">
+                        <div class="tip-card-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3>Social Media Tip</h3>
+                        <p>Review your privacy settings regularly and limit who can see your posts, images, and personal details. Oversharing can expose you to unwanted attention.</p>
+                    </article>
+
+                    <article class="tip-card animate-on-scroll">
+                        <div class="tip-card-icon"><i class="fas fa-sliders"></i></div>
+                        <h3>App Permission Tip</h3>
+                        <p>Only allow permissions that an app truly needs. Remove camera, microphone, contacts, or location access from apps that do not need it.</p>
+                    </article>
+
+                    <article class="tip-card animate-on-scroll">
+                        <div class="tip-card-icon"><i class="fas fa-wifi"></i></div>
+                        <h3>Public Wi-Fi Tip</h3>
+                        <p>Avoid sensitive transactions on unsecured public Wi-Fi. If you must use it, prefer a secure VPN and avoid banking or online payments.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: linear-gradient(180deg, #0d1137 0%, var(--color-bg-dark) 100%);">
+            <div class="container text-center">
+                <h2 class="section-title">Build Safer Habits <span class="text-cyan">Today</span></h2>
+                <p class="section-subtitle">Privacy is not a one-time action — it is a habit. Start with one change today and keep improving your digital safety.</p>
+                <a href="/survey/" class="btn btn-primary btn-lg"><i class="fas fa-clipboard-list"></i> Take the Awareness Survey</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><i class="fas fa-shield-halved"></i> PrivacyAware</div>
+                    <p class="footer-desc">A Community Engagement Project dedicated to spreading digital privacy awareness and promoting safer online habits for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/learn/">Learn Privacy</a>
+                        <a href="/quiz/">Privacy Quiz</a>
+                        <a href="/tips/">Safety Tips</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Project</h4>
+                    <div class="footer-links">
+                        <a href="/survey/">Take Survey</a>
+                        <a href="/dashboard/">Dashboard</a>
+                        <a href="/about/">About CEP</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <div class="footer-links">
+                        <a href="/about/">About This Project</a>
+                        <a href="/about/">CEP Methodology</a>
+                        <a href="/about/">Community Impact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PrivacyAware — Digital Privacy Awareness for Community Organization. A CEP Initiative.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

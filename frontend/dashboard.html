@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard showing survey and quiz results for the Digital Privacy Awareness Community Engagement Project.">
+    <title>Dashboard — PrivacyAware</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .dashboard-hero {
+            padding: var(--space-4xl) 0 var(--space-2xl);
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0d1137 100%);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .chart-section {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-2xl);
+        }
+
+        .chart-panel {
+            background: var(--color-bg-glass);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+        }
+
+        .chart-panel h3 {
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .bar-row {
+            display: grid;
+            grid-template-columns: 130px 1fr 60px;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .bar-label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+
+        .bar-track {
+            height: 12px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--color-cyan), var(--color-blue));
+        }
+
+        .bar-value {
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+        }
+
+        .empty-state {
+            text-align: center;
+            color: var(--color-text-secondary);
+            padding: var(--space-xl) 0;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid,
+            .chart-section {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-content">
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="nav-brand" aria-label="PrivacyAware Home"><i class="fas fa-shield-halved"></i> PrivacyAware</a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/learn/">Learn</a>
+                <a href="/tips/">Safety Tips</a>
+                <a href="/survey/">Survey</a>
+                <a href="/about/">About</a>
+                <a href="/dashboard/" class="active">Dashboard</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="dashboard-hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <i class="fas fa-chart-column"></i> CEP Results Dashboard
+                </div>
+                <h1>Project <span class="text-cyan">Dashboard</span></h1>
+                <p class="section-subtitle" style="margin-bottom:0;">Review participant engagement, awareness levels, and overall project impact using real survey and quiz data.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="dashboard-grid" id="dashboardCards">
+                    <div class="stat-card"><div class="stat-number" id="totalParticipants">0</div><div class="stat-label">Total Participants</div></div>
+                    <div class="stat-card"><div class="stat-number" id="averageScore">0</div><div class="stat-label">Average Awareness Score</div></div>
+                    <div class="stat-card"><div class="stat-number" id="goodPercentage">0%</div><div class="stat-label">Good Awareness %</div></div>
+                    <div class="stat-card"><div class="stat-number" id="moderatePercentage">0%</div><div class="stat-label">Moderate Awareness %</div></div>
+                    <div class="stat-card"><div class="stat-number" id="needsPercentage">0%</div><div class="stat-label">Needs Improvement %</div></div>
+                </div>
+
+                <div class="chart-section">
+                    <div class="chart-panel animate-on-scroll">
+                        <h3>Before Awareness vs After Awareness</h3>
+                        <div class="bar-chart" id="awarenessChart"></div>
+                    </div>
+                    <div class="chart-panel animate-on-scroll">
+                        <h3>Quiz Level Distribution</h3>
+                        <div class="bar-chart" id="quizChart"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><i class="fas fa-shield-halved"></i> PrivacyAware</div>
+                    <p class="footer-desc">A Community Engagement Project dedicated to spreading digital privacy awareness and promoting safer online habits for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/learn/">Learn Privacy</a>
+                        <a href="/quiz/">Privacy Quiz</a>
+                        <a href="/tips/">Safety Tips</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Project</h4>
+                    <div class="footer-links">
+                        <a href="/survey/">Take Survey</a>
+                        <a href="/dashboard/">Dashboard</a>
+                        <a href="/about/">About CEP</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <div class="footer-links">
+                        <a href="/about/">About This Project</a>
+                        <a href="/about/">CEP Methodology</a>
+                        <a href="/about/">Community Impact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PrivacyAware — Digital Privacy Awareness for Community Organization. A CEP Initiative.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

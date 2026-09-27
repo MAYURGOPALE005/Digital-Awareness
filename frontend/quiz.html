@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test your digital privacy knowledge with our interactive quiz. Find out how privacy-aware you are!">
+    <title>Privacy Quiz — PrivacyAware</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="page-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="nav-brand"><i class="fas fa-shield-halved"></i> PrivacyAware</a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/learn/">Learn</a>
+                <a href="/quiz/" class="active">Quiz</a>
+                <a href="/tips/">Safety Tips</a>
+                <a href="/survey/">Survey</a>
+                <a href="/about/">About</a>
+                <a href="/quiz/" class="nav-cta">Take Quiz</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="quiz-hero">
+            <div class="container">
+                <h1>How Privacy-Aware <span class="text-cyan">Are You?</span></h1>
+                <p>Answer 10 questions to test your knowledge about digital privacy and online safety.</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="section">
+            <div class="container">
+                <div class="quiz-container" id="quizContainer">
+
+                    <!-- Loading State -->
+                    <div class="quiz-loading" id="quizLoading">
+                        <div class="spinner"></div>
+                        <p>Loading quiz questions...</p>
+                    </div>
+
+                    <!-- Start Screen -->
+                    <div class="quiz-start" id="quizStart" style="display:none;">
+                        <div class="quiz-start-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h2>Ready to Test Your Knowledge?</h2>
+                        <p>This quiz covers digital privacy, online safety, phishing, passwords, and more. See how aware you really are!</p>
+                        <div class="quiz-info-cards">
+                            <div class="quiz-info-card">
+                                <div class="number">10</div>
+                                <div class="label">Questions</div>
+                            </div>
+                            <div class="quiz-info-card">
+                                <div class="number">4</div>
+                                <div class="label">Options Each</div>
+                            </div>
+                            <div class="quiz-info-card">
+                                <div class="number">∞</div>
+                                <div class="label">No Time Limit</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg" id="startQuizBtn">
+                            <i class="fas fa-play"></i> Start Quiz
+                        </button>
+                    </div>
+
+                    <!-- Quiz Active -->
+                    <div id="quizActive" style="display:none;">
+                        <!-- Progress Bar -->
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="quizProgress"></div>
+                        </div>
+
+                        <!-- Question Header -->
+                        <div class="quiz-header">
+                            <span class="quiz-question-number" id="questionNumber">Question 1</span>
+                            <span class="quiz-question-count" id="questionCount">1 of 10</span>
+                        </div>
+
+                        <!-- Question Card -->
+                        <div class="quiz-question-card">
+                            <p class="quiz-question-text" id="questionText"></p>
+                            <div class="quiz-options" id="quizOptions" role="radiogroup" aria-label="Quiz options">
+                                <!-- Options rendered by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="quiz-nav">
+                            <button class="btn btn-ghost" id="prevBtn" disabled>
+                                <i class="fas fa-arrow-left"></i> Previous
+                            </button>
+                            <button class="btn btn-primary" id="nextBtn">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button class="btn btn-primary" id="submitQuizBtn" style="display:none;">
+                                <i class="fas fa-check-circle"></i> Submit Quiz
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="quiz-result-card" id="quizResult">
+                        <div class="result-icon" id="resultIcon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="result-score" id="resultScore">0/10</div>
+                        <div class="result-percentage" id="resultPercentage">0%</div>
+                        <div class="result-level" id="resultLevel">---</div>
+                        <p class="result-message" id="resultMessage"></p>
+                        <div class="result-actions">
+                            <button class="btn btn-primary" id="retakeBtn">
+                                <i class="fas fa-redo"></i> Retake Quiz
+                            </button>
+                            <a href="/learn/" class="btn btn-outline">
+                                <i class="fas fa-book-open"></i> Learn More
+                            </a>
+                        </div>
+
+                        <!-- Review Section -->
+                        <div class="quiz-review" id="quizReview">
+                            <h3>Review Your Answers</h3>
+                            <div id="reviewContent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Error State -->
+                    <div id="quizError" style="display:none;" class="text-center">
+                        <div class="alert alert-error show" style="display:block; max-width:500px; margin:0 auto;">
+                            <p><strong>Could not load quiz.</strong></p>
+                            <p id="quizErrorMessage">Please check your connection and try again.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="location.reload()" style="margin-top:1rem;">
+                            <i class="fas fa-redo"></i> Retry
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><i class="fas fa-shield-halved"></i> PrivacyAware</div>
+                    <p class="footer-desc">A Community Engagement Project dedicated to spreading digital privacy awareness and promoting safer online habits for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/learn/">Learn Privacy</a>
+                        <a href="/quiz/">Privacy Quiz</a>
+                        <a href="/tips/">Safety Tips</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Project</h4>
+                    <div class="footer-links">
+                        <a href="/survey/">Take Survey</a>
+                        <a href="/dashboard/">Dashboard</a>
+                        <a href="/about/">About CEP</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <div class="footer-links">
+                        <a href="/about/">About This Project</a>
+                        <a href="/about/">CEP Methodology</a>
+                        <a href="/about/">Community Impact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PrivacyAware — Digital Privacy Awareness for Community Organization. A CEP Initiative.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About the Digital Privacy Awareness Community Engagement Project and its impact on digital safety awareness.">
+    <title>About CEP — PrivacyAware</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .about-hero {
+            padding: var(--space-4xl) 0 var(--space-2xl);
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0d1137 100%);
+        }
+
+        .about-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--space-2xl);
+            align-items: start;
+        }
+        
+
+        .content-card {
+            background: var(--color-bg-glass);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+        }
+
+        .content-card h2,
+        .content-card h3 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .content-card p,
+        .content-card li {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .content-card ul {
+            padding-left: var(--space-xl);
+            list-style: disc;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: var(--space-xl);
+            padding-left: var(--space-xl);
+            border-left: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-xl);
+            padding-left: var(--space-lg);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.6rem;
+            top: 0.3rem;
+            width: 14px;
+            height: 14px;
+            background: var(--color-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15);
+        }
+
+        .timeline-item strong {
+            display: block;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-content">
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="nav-brand" aria-label="PrivacyAware Home"><i class="fas fa-shield-halved"></i> PrivacyAware</a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/learn/">Learn</a>
+                <a href="/tips/">Safety Tips</a>
+                <a href="/survey/">Survey</a>
+                <a href="/about/" class="active">About</a>
+                <a href="/survey/" class="nav-cta">Take Survey</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="about-hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <i class="fas fa-users-gear"></i> College Community Engagement Project
+                </div>
+                <h1>About <span class="text-cyan">CEP</span></h1>
+                <p class="section-subtitle" style="margin-bottom:0;">Digital Privacy Awareness for Community Organization is designed to help people understand the risks of online life and build safer digital habits.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container about-grid">
+                <div class="content-card animate-on-scroll">
+                    <h2>Project</h2>
+                    <p>This initiative aims to raise awareness among community members about digital privacy, online risks, and secure digital habits. It promotes practical learning, responsible internet use, and confidence in managing personal information safely online.</p>
+                    <ul>
+                        <li>Increase awareness about digital privacy.</li>
+                        <li>Educate users about common cyber risks and scams.</li>
+                        <li>Promote safe digital habits for everyday life.</li>
+                        <li>Encourage responsible use of digital platforms.</li>
+                        <li>Measure awareness improvement through surveys and quizzes.</li>
+                    </ul>
+                </div>
+
+                <div class="content-card animate-on-scroll">
+                    <h3>Community Impact</h3>
+                    <p>By teaching simple but effective privacy practices, the project helps users become more aware of threats such as phishing, account compromise, oversharing, and unsafe online transactions.</p>
+                    <div class="badge badge-cyan" style="margin-top:1rem;">Safer digital habits</div>
+                    <div class="badge badge-green" style="margin-top:0.75rem;">Better awareness</div>
+                    <div class="badge badge-orange" style="margin-top:0.75rem;">Stronger community trust</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top:0;">
+            <div class="container">
+                <div class="content-card animate-on-scroll">
+                    <h2>Project Methodology</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>Pre-Survey</strong>
+                            <p>Assess current digital privacy awareness and understand common habits within the community.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Awareness Session</strong>
+                            <p>Share knowledge about privacy risks, safe online practices, and essential protection strategies.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Post-Survey</strong>
+                            <p>Collect feedback to measure awareness improvement after education and guidance.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Analysis</strong>
+                            <p>Review trends in survey and quiz data to understand strengths and gaps in awareness.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Impact</strong>
+                            <p>Use the findings to improve community understanding and encourage safer digital behavior.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><i class="fas fa-shield-halved"></i> PrivacyAware</div>
+                    <p class="footer-desc">A Community Engagement Project dedicated to spreading digital privacy awareness and promoting safer online habits for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/learn/">Learn Privacy</a>
+                        <a href="/quiz/">Privacy Quiz</a>
+                        <a href="/tips/">Safety Tips</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Project</h4>
+                    <div class="footer-links">
+                        <a href="/survey/">Take Survey</a>
+                        <a href="/dashboard/">Dashboard</a>
+                        <a href="/about/">About CEP</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <div class="footer-links">
+                        <a href="/about/">About This Project</a>
+                        <a href="/about/">CEP Methodology</a>
+                        <a href="/about/">Community Impact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PrivacyAware — Digital Privacy Awareness for Community Organization. A CEP Initiative.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

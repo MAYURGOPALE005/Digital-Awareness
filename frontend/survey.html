@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Community awareness survey to understand digital privacy habits and improve online safety awareness.">
+    <title>Digital Privacy Awareness Survey — PrivacyAware</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .survey-hero {
+            padding: var(--space-4xl) 0 var(--space-2xl);
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0d1137 100%);
+        }
+
+        .survey-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .survey-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(15, 20, 50, 0.6);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .survey-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--space-2xl);
+        }
+
+        @media (max-width: 768px) {
+            .survey-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .survey-hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-content">
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="nav-brand" aria-label="PrivacyAware Home"><i class="fas fa-shield-halved"></i> PrivacyAware</a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/learn/">Learn</a>
+                <a href="/tips/">Safety Tips</a>
+                <a href="/survey/" class="active">Survey</a>
+                <a href="/about/">About</a>
+                <a href="/survey/" class="nav-cta">Take Survey</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="survey-hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <i class="fas fa-clipboard-question"></i> Community Engagement
+                </div>
+                <h1>Digital Privacy Awareness <span class="text-cyan">Survey</span></h1>
+                <p class="section-subtitle" style="margin-bottom:0;">This survey is conducted as part of a Community Engagement Project to understand digital privacy awareness and promote safer digital habits.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="survey-card" style="margin-bottom: 1.5rem;">
+                    <div class="alert alert-info show" style="display:block; margin-bottom:1rem;">
+                        <p><strong>Official community survey:</strong> Use the Google Form below to submit your response.</p>
+                    </div>
+                    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                        <a class="btn btn-primary btn-lg" href="https://docs.google.com/forms/d/e/1FAIpQLSdH6jnCKkJR4pKZm9DcwgnnaqJ9emEDvotJ7Mg9olIHXxi6-Q/viewform" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> Open Google Form
+                        </a>
+                        <a class="btn btn-outline btn-lg" href="#local-survey-form">
+                            <i class="fas fa-clipboard-list"></i> Use Local Form
+                        </a>
+                    </div>
+                </div>
+
+                <div class="survey-card" id="local-survey-form">
+                    <div id="surveyStatus" aria-live="polite"></div>
+                    <form id="surveyForm" novalidate>
+                        <div class="survey-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="age_group">Age Group</label>
+                                <select class="form-select" id="age_group" name="age_group" required>
+                                    <option value="">Select</option>
+                                    <option value="under_18">Under 18</option>
+                                    <option value="18_25">18 – 25</option>
+                                    <option value="26_35">26 – 35</option>
+                                    <option value="36_50">36 – 50</option>
+                                    <option value="above_50">Above 50</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="internet_usage">Internet Usage Frequency</label>
+                                <select class="form-select" id="internet_usage" name="internet_usage" required>
+                                    <option value="">Select</option>
+                                    <option value="rarely">Rarely</option>
+                                    <option value="few_times_week">A few times a week</option>
+                                    <option value="daily">Daily</option>
+                                    <option value="multiple_hours">Multiple hours every day</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="platforms">Frequently Used Digital Platforms</label>
+                                <input class="form-input" id="platforms" name="platforms" type="text" placeholder="Example: WhatsApp, Instagram, Gmail" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="privacy_awareness">Digital Privacy Awareness</label>
+                                <select class="form-select" id="privacy_awareness" name="privacy_awareness" required>
+                                    <option value="">Select</option>
+                                    <option value="not_aware">Not Aware</option>
+                                    <option value="slightly_aware">Slightly Aware</option>
+                                    <option value="moderately_aware">Moderately Aware</option>
+                                    <option value="very_aware">Very Aware</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="password_practice">Password Practices</label>
+                                <select class="form-select" id="password_practice" name="password_practice" required>
+                                    <option value="">Select</option>
+                                    <option value="never">Never</option>
+                                    <option value="rarely">Rarely</option>
+                                    <option value="sometimes">Sometimes</option>
+                                    <option value="always">Always</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="two_factor_auth">2FA Usage</label>
+                                <select class="form-select" id="two_factor_auth" name="two_factor_auth" required>
+                                    <option value="">Select</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                    <option value="not_sure">Not Sure</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="phishing_awareness">Phishing Awareness</label>
+                                <select class="form-select" id="phishing_awareness" name="phishing_awareness" required>
+                                    <option value="">Select</option>
+                                    <option value="not_aware">Not Aware</option>
+                                    <option value="slightly_aware">Slightly Aware</option>
+                                    <option value="moderately_aware">Moderately Aware</option>
+                                    <option value="very_aware">Very Aware</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="app_permissions">App Permission Practices</label>
+                                <select class="form-select" id="app_permissions" name="app_permissions" required>
+                                    <option value="">Select</option>
+                                    <option value="never">Never</option>
+                                    <option value="rarely">Rarely</option>
+                                    <option value="sometimes">Sometimes</option>
+                                    <option value="always">Always</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="social_media_privacy">Social Media Privacy Practices</label>
+                                <select class="form-select" id="social_media_privacy" name="social_media_privacy" required>
+                                    <option value="">Select</option>
+                                    <option value="never">Never</option>
+                                    <option value="rarely">Rarely</option>
+                                    <option value="sometimes">Sometimes</option>
+                                    <option value="always">Always</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="online_payment_safety">Online Payment Safety</label>
+                                <select class="form-select" id="online_payment_safety" name="online_payment_safety" required>
+                                    <option value="">Select</option>
+                                    <option value="never">Never</option>
+                                    <option value="rarely">Rarely</option>
+                                    <option value="sometimes">Sometimes</option>
+                                    <option value="always">Always</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label class="form-label" for="privacy_concern">Biggest Digital Privacy Concern</label>
+                                <textarea class="form-textarea" id="privacy_concern" name="privacy_concern" placeholder="Share the main digital privacy issue you are most concerned about." rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> Submit Survey</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><i class="fas fa-shield-halved"></i> PrivacyAware</div>
+                    <p class="footer-desc">A Community Engagement Project dedicated to spreading digital privacy awareness and promoting safer online habits for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/learn/">Learn Privacy</a>
+                        <a href="/quiz/">Privacy Quiz</a>
+                        <a href="/tips/">Safety Tips</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Project</h4>
+                    <div class="footer-links">
+                        <a href="/survey/">Take Survey</a>
+                        <a href="/dashboard/">Dashboard</a>
+                        <a href="/about/">About CEP</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <div class="footer-links">
+                        <a href="/about/">About This Project</a>
+                        <a href="/about/">CEP Methodology</a>
+                        <a href="/about/">Community Impact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PrivacyAware — Digital Privacy Awareness for Community Organization. A CEP Initiative.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/survey.js"></script>
+</body>
+</html>

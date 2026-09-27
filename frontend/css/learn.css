@@ -1,0 +1,167 @@
+/* ==========================================================================
+   Learn Digital Privacy Page Styles
+   ========================================================================== */
+
+.learn-hero {
+    padding: var(--space-4xl) 0 var(--space-2xl);
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0d1137 100%);
+    text-align: center;
+}
+
+.learn-hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: var(--space-md);
+}
+
+.learn-hero p {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Topic Cards */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+}
+
+.topic-card {
+    background: var(--color-bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-cyan), var(--color-blue));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.topic-card:hover {
+    background: var(--color-bg-glass-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-cyan);
+}
+
+.topic-card:hover::before {
+    opacity: 1;
+}
+
+.topic-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.topic-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.topic-icon.password { background: linear-gradient(135deg, var(--color-cyan), var(--color-blue)); }
+.topic-icon.twofa { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+.topic-icon.phishing { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.topic-icon.social { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.topic-icon.permissions { background: linear-gradient(135deg, #10b981, #059669); }
+.topic-icon.payment { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+
+.topic-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.topic-content p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.topic-content ul {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+}
+
+.topic-content ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.topic-content ul li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--color-cyan);
+    font-size: 0.85rem;
+}
+
+/* Safety Tip Box */
+.safety-tip {
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-md);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.safety-tip i {
+    color: var(--color-cyan);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.safety-tip-content strong {
+    display: block;
+    color: var(--color-cyan);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+}
+
+.safety-tip-content p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .learn-hero h1 {
+        font-size: 2rem;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+}
